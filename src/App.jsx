@@ -11,8 +11,11 @@ function App() {
   const [tasks, setTasks] = useState(initialTasks);
   const [newTask, setNewTask] = useState('');
 
-  const addTask = () => {
-    if (newTask.trim() === '') return;
+ const addTask = () => {
+  if (newTask.trim() === '') {
+    alert('Please enter a task before adding.');
+    return;
+  }
     const newId = tasks.length ? tasks[tasks.length - 1].id + 1 : 1;
     const task = { id: newId, title: newTask, completed: false };
     setTasks([...tasks, task]);
